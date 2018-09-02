@@ -6,5 +6,4 @@
 
 **注意：你的账号必须开启 『代码公开计划』！**
 
-
-![](https://i.loli.net/2018/09/02/5b8b2cd425c17.png)
+![](https://i.loli.net/2018/09/02/5b8b5c6e8d3ba.png)
