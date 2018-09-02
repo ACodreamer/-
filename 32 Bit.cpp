@@ -4,7 +4,7 @@
 
 /*#include <urlmon.h>
 #pragma comment(lib, "urlmon.lib")*/
-//CEµÄ»°°ÑÉÏÃæÁ½ĞĞ¸Ä³ÉÏÂÃæÎåĞĞ
+//CEçš„è¯æŠŠä¸Šé¢ä¸¤è¡Œæ”¹æˆä¸‹é¢äº”è¡Œ
 
 #ifdef URLDownloadToFile
 #undef URLDownloadToFile
@@ -67,15 +67,15 @@ void problem(char *str)
 	delete []ptr;
 	SetConsoleCursorPosition(hOutput,pos);
 	printf(
-		"%s µÄÍ³¼Æ:    %s        \n"
-		"ÈëÃÅÄÑ¶È:       %d\n"
-		"ÆÕ¼°-:          %d\n"
-		"ÆÕ¼°/Ìá¸ß-:     %d\n"
-		"ÆÕ¼°+/Ìá¸ß:     %d\n"
-		"Ìá¸ß+/Ê¡Ñ¡-:    %d\n"
-		"Ê¡Ñ¡/NOI-:      %d\n"
+		"%s çš„ç»Ÿè®¡:    %s        \n"
+		"å…¥é—¨éš¾åº¦:       %d\n"
+		"æ™®åŠ-:          %d\n"
+		"æ™®åŠ/æé«˜-:     %d\n"
+		"æ™®åŠ+/æé«˜:     %d\n"
+		"æé«˜+/çœé€‰-:    %d\n"
+		"çœé€‰/NOI-:      %d\n"
 		"NOI/NOI+/CTSC:  %d\n"
-		"ÉĞÎŞÆÀ¶¨:       %d\n",name,prob,count[0],count[1],count[2],count[3],
+		"å°šæ— è¯„å®š:       %d\n",name,prob,count[0],count[1],count[2],count[3],
 		count[4],count[5],count[6],count[7]);
 }
 int main()
@@ -85,7 +85,7 @@ int main()
 	char url[128],user[16],*file,*ptr;
 	HANDLE hFile;
 	hOutput = GetStdHandle(STD_OUTPUT_HANDLE);
-	printf("ÇëÊäÈëÄãµÄÂå¹ÈUID: ");
+	printf("è¯·è¾“å…¥ä½ çš„æ´›è°·UID: ");
 	scanf("%d",&uid);
 	sprintf(url,"https://www.luogu.org/space/show?uid=%d",uid);
 	URLDownloadToFile(0,url,"download.tmp",0,0);
@@ -101,17 +101,17 @@ int main()
 	if(ptr)
 	{
 		while(ptr[0] != '<' || ptr[1] != '/' || ptr[2] != 'h')name[i++] = *ptr++;
-		printf("\n%s µÄÍ³¼Æ: ",name);
-		ptr = strfind(file,"Í¨¹ıÌâÄ¿</h2>\n[<");
+		printf("\n%s çš„ç»Ÿè®¡: ",name);
+		ptr = strfind(file,"é€šè¿‡é¢˜ç›®</h2>\n[<");
 		if(ptr)while(*ptr != '<')
 		{
 			ptr = strfind(ptr,"\">");
 			problem(ptr);
 			ptr = strfind(ptr,"]\n");
 		}
-		else printf("»¹Ã»ÓĞÍ¨¹ıÈÎºÎÌâÄ¿\n");
+		else printf("è¿˜æ²¡æœ‰é€šè¿‡ä»»ä½•é¢˜ç›®\n");
 	}
-	else printf("ÓÃ»§²»´æÔÚ\n");
+	else printf("ç”¨æˆ·ä¸å­˜åœ¨\n");
 	DeleteFile("download.tmp");
 	delete []file;
 	printf("\n");
